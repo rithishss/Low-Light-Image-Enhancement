@@ -49,11 +49,11 @@ def show_home():
     uploaded_image = st.file_uploader("", type=["png", "jpg", "jpeg"])
 
     if uploaded_image:
-        st.image(uploaded_image, caption="Uploaded Image", use_container_width=True)
+        st.image(uploaded_image, caption="Uploaded Image", width="stretch")
         original_image = Image.open(uploaded_image)
 
         output_image = zeroimage(original_image)
-        st.image(output_image, caption="ZeroDCE", use_container_width=True)
+        st.image(output_image, caption="ZeroDCE", width="stretch")
         # Simulating returned images for demonstration
 #        returned_images = [
 #            {"title": "ZeroDCE", "path": "output_image"},
