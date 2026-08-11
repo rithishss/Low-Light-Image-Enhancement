@@ -1,10 +1,14 @@
+import os
 import streamlit as st
 from PIL import Image
 from zerodce import ZeroDCE
-import clahe as cl
 import tensorflow as tf
 import numpy as np
 import keras
+
+# Weights live next to this file, so resolve them relative to it rather than
+# the working directory Streamlit happens to be launched from.
+WEIGHTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "zerodce1.h5")
 
 st.set_page_config(page_title="Low Light Image Detection", page_icon="📷", layout="wide")
 
@@ -35,7 +39,7 @@ def infer(original_image, model):
 
 def zeroimage(original_image):
     model = ZeroDCE()
-    model.load_weights('/content/drive/MyDrive/zerodce1.h5')
+    model.load_weights(WEIGHTS_PATH)
     output_image = infer(original_image, model)
     return output_image
 
@@ -45,14 +49,11 @@ def show_home():
     uploaded_image = st.file_uploader("", type=["png", "jpg", "jpeg"])
 
     if uploaded_image:
-        st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+        st.image(uploaded_image, caption="Uploaded Image", use_container_width=True)
         original_image = Image.open(uploaded_image)
 
         output_image = zeroimage(original_image)
-        st.image(output_image, caption="ZeroDCE", use_column_width=True)
-        
-        #output_image2 = cl.enhance_image(original_image)
-        #st.image(output_image2, caption="CLAHE", use_column_width=True)
+        st.image(output_image, caption="ZeroDCE", use_container_width=True)
         # Simulating returned images for demonstration
 #        returned_images = [
 #            {"title": "ZeroDCE", "path": "output_image"},
@@ -60,6 +61,8 @@ def show_home():
 #            {"title": "CLAHE", "path": "path_to_clahe_image"},
 #            {"title": "Sambhav", "path": "path_to_sambhav_image"}
 #        ]
+
+    st.caption("Built by Rithish S · [github.com/rithishss](https://github.com/rithishss)")
 
 if __name__ == "__main__":
     main()
