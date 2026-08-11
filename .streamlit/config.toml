@@ -1,0 +1,5 @@
+[server]
+# Streamlit buffers an entire upload in memory before the app script runs, so
+# the check in app.py cannot stop a huge file on its own. Reject it here first.
+# Keep this in sync with MAX_UPLOAD_MB in app.py.
+maxUploadSize = 10
