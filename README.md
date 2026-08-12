@@ -1,8 +1,6 @@
-Low Light Image Enhancement
+<h1 align="center">Low Light Image Enhancement</h1> <p align="center">Brightens underexposed photos without paired training data</p> <p align="center"><a href="https://lowlight-zerodce-rithish.streamlit.app">Live demo</a></p>
 
-Brightens underexposed photos without needing paired before-and-after training data. Implements Zero-DCE from scratch in TensorFlow/Keras and compares it against a classical CLAHE baseline, wrapped in a Streamlit app you can try in the browser.
-
-Live demo: https://lowlight-zerodce-rithish.streamlit.app
+Implements Zero-DCE from scratch in TensorFlow/Keras and compares it against a classical CLAHE baseline, wrapped in a Streamlit app you can try in the browser.
 
 Why this approach
 
@@ -68,4 +66,5 @@ No denoising stage; enhancement and denoising are treated as separate problems h
 CPU inference only
 Stack
 
+Python, TensorFlow/Keras, OpenCV, NumPy, Pillow, Streamlit
 Python, TensorFlow/Keras, OpenCV, NumPy, Pillow, Streamlit
