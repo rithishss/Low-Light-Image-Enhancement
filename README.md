@@ -1,4 +1,4 @@
-#Low Light Image Enhancement
+Low Light Image Enhancement
 
 Brightens underexposed photos without needing paired before-and-after training data. Implements Zero-DCE from scratch in TensorFlow/Keras and compares it against a classical CLAHE baseline, wrapped in a Streamlit app you can try in the browser.
 
